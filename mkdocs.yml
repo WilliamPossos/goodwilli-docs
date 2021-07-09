@@ -1,0 +1,4 @@
+site_name: Good Willi Docs
+site_url: https://docs.goodwilli.com/
+theme:
+    name: readthedocs
