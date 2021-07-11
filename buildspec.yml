@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  pre_build:
+    commands:
+      - pip install --upgrade pip
+      - pip install mkdocs
+  build:
+    commands:
+      - echo building site...
+      - mkdocs --version
+      - mkdocs build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'site'
