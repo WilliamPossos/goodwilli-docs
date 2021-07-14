@@ -18,15 +18,30 @@ The components are:
 - Lambda triggered by SQS and uses SES service to send the emails.
 - Simple Email Service (SES) service to enable email sending.
 
-## Creating Lambda (Golang)
+## Lambda (Golang) + Api Gateway
+In Lambda proxy integration, the input to the integrated Lambda function can be expressed as any combination of request headers, path variables, query string parameters, and body. In addition, the Lambda function can use API configuration settings to influence its execution logic. For an API developer, setting up a Lambda proxy integration is simple. Other than choosing a particular Lambda function in a given region, you have little else to do. API Gateway configures the integration request and integration response for you. Once set up, the integrated API method can evolve with the backend without modifying the existing settings. This is possible because the backend Lambda function developer parses the incoming request data and responds with desired results to the client when nothing goes wrong or responds with error messages when anything goes wrong.
 ### Gin
 Gin is a web framework written in Go (Golang)
 ### Lambda Go Api Proxy
 Makes it easy to run Golang APIs written with frameworks such as Gin with AWS Lambda and Amazon API Gateway
-### Api Gateway + Lambda
-In Lambda proxy integration, the input to the integrated Lambda function can be expressed as any combination of request headers, path variables, query string parameters, and body. In addition, the Lambda function can use API configuration settings to influence its execution logic. For an API developer, setting up a Lambda proxy integration is simple. Other than choosing a particular Lambda function in a given region, you have little else to do. API Gateway configures the integration request and integration response for you. Once set up, the integrated API method can evolve with the backend without modifying the existing settings. This is possible because the backend Lambda function developer parses the incoming request data and responds with desired results to the client when nothing goes wrong or responds with error messages when anything goes wrong.
 
-    
+### Create and configure with aws web console
+1. ![Lambda list](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/lambda-list-view.png)
+1. ![Create lambda view](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/create-lambda-go-1.png)
+1. ![Lambda main view](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/lambda-main-view.png)
+1. ![Linking trigger api gateway](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/lambda-add-trigger-api-gw-1.png)
+1. ![Linking trigger api gateway](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/lambda-add-trigger-api-gw-2.png)
+1. ![Create resource/method](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-resources-1.png)
+1. ![Create resource/method](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-resources-2.png)
+1. ![Create resource/method](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-resources-3.png)
+1. ![Linking lambda](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-link-lambda.png)
+1. ![Crating stage](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-stage-1.png)
+1. ![Crating stage](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-stage-2.png)
+1. ![Deploying API](https://joiners-challenge.s3.amazonaws.com/lambda-api-gw/configure-api-gw-deploy.png)
+
+## Using aws Cloudformation
+AWS CloudFormation gives you an easy way to model a collection of related AWS and third-party resources, provision them quickly and consistently, and manage them throughout their lifecycles, by treating infrastructure as code
+
 ## Continuous integration and delivery
 Once the code has been pushed to github repository. The Code Pipeline of aws starts the automatic build and deploy of our front-end/back-end code
 
@@ -119,6 +134,7 @@ artifacts:
 
 
 Lambda / Gin
+
 - **Gin to build web server (Go):** https://github.com/gin-gonic/gin
 - **Go API proxy:** https://github.com/awslabs/aws-lambda-go-api-proxy
 - **Build an API Gateway REST API with Lambda integration:** https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html
