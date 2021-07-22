@@ -11,7 +11,7 @@ The components are:
 
 - Angular project to build the solution Front-End.
 - Static website to host the built front-end (AWS s3).
-- AWS CLoudFront to deliver **securely** the s3 content.
+- AWS CloudFront to deliver **securely** the s3 content.
 - Api gateway acts as the "front door" for applications to access data, business logic, or functionality from your backend services.
 - Bank-end lambda used to manage the backend flow of sign in and sign up.
 - Simple Queue Service (SQS) service to queue the messages which will then be sent to users emails.
